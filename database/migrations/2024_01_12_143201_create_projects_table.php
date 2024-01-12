@@ -12,6 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100)->unique();
+            $table->text('description');
+            $table->string('repository_link')->unique();
+            $table->date('completion_date')->nullable();
+            $table->enum('project_status', ['active', 'completed', 'paused'])->default('active');
+            $table->timestamps();
         });
     }
 
