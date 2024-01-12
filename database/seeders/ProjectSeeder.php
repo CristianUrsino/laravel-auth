@@ -14,7 +14,17 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        $projects = config('db.projects');
+
+        foreach($projects as $project){
+            $newProject = new Project();
+            $newProject->name = $project['name'];
+            $newProject->description = $project['description'];
+            $newProject->repository_link = $project['repository_link'];
+            $newProject->completion_date = $project['completion_date'];
+            $newProject->project_status = $project['project_status'];
+            $newProject->save();
+        }
 
     }
 }
