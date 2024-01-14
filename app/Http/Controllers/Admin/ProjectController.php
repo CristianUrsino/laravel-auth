@@ -32,7 +32,10 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $formData = $request->validated();
+        // dd($formData);
+        $project = Project::create($formData);
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
