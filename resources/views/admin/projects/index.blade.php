@@ -7,6 +7,7 @@
     @foreach ($projects as $project)
         <div>
             <a href="{{route('admin.projects.show',$project->id)}}">{{$project->name}}</a>
+            <a href="{{route('admin.projects.edit', $project->id)}}" class="ms-3">edit</a>
         </div>
     @endforeach
 @endsection

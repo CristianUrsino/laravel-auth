@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="container">
-        <h1>Section title</h1>
-        <p>section content</p>
+        <h1>HOME</h1>
+        <div><a href="{{route('admin.projects.index')}}">projects</a></div>
     </section>
 @endsection
