@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('repository_link')->unique();
             $table->date('completion_date')->nullable();
             $table->enum('project_status', ['active', 'completed', 'paused'])->default('active');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -8,6 +8,8 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
+use Illuminate\Support\Facades\Storage;
+
 class ProjectController extends Controller
 {
     /**
@@ -33,6 +35,12 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $formData = $request->validated();
+        
+        if($request->hasfile('image')){
+            $image = Storage::put('image', $formData['image']); 
+            $formData['image'] = $image;
+        }
+
         // dd($formData);
         $project = Project::create($formData);
         return redirect()->route('admin.projects.show', $project->id);
@@ -72,6 +80,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         {
+            if($project->image){
+                Storage::delete($project->image);
+            }
             $project->delete();
             return to_route('admin.projects.index')->with('message',"$project->name eliminato");
         }

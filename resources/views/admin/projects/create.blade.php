@@ -3,7 +3,7 @@
     <section class="container">
        <h1>project create</h1>
 
-       <form action="{{route('admin.projects.store')}}" method="POST">
+       <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -36,6 +36,14 @@
                 <label for="completion_date">completion_date</label>
                 <input type="date" class="form-control @error('completion_date') is-invalid @enderror" name="completion_date" id="completion_date" value="{{ old('completion_date') }}">
                 @error('completion_date')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="image">image</label>
+                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" value="{{ old('image') }}">
+                @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

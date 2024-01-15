@@ -4,4 +4,5 @@
     <div>
         {{$project->description}}
     </div>
+    <div><img src="{{asset('storage/'.$project->image)}}" alt="image of {{$project->title}}"></div>
 @endsection
