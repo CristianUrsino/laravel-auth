@@ -7,6 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# TRACCIA
+Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
+- Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office
+- Creazione del modello `Project` con relativa migrazione, seeder, controller, validazioni e rotte
+- Per la parte di back-office creiamo un resource controller `Admin\ProjectController` per gestire tutte le operazioni CRUD dei progetti
+- Implementare la visualizzazione dei dati nella index dei progetti con una tabella (con bottoni per show, edit, e delete)
+
 ## Installazione Laravel
 
 ```bash
