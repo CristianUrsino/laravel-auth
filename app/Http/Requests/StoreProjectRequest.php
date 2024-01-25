@@ -28,7 +28,7 @@ class StoreProjectRequest extends FormRequest
             'description'=>['required', 'min:3', 'max:65535',Rule::unique('projects')->ignore($this->project)],
             'repository_link'=>['required', 'url','min:3'],
             'completion_date'=>['nullable', 'date'],
-            'image'=>['nullable', 'image', 'mimes:jpeg,png,gif,bmp,svg', 'max:255'],
+            'image'=>['nullable', 'image', 'mimes:jpeg,png,gif,bmp,svg,jpg', 'max:255'],
             'project_status'=>['required'],
         ];
     }
@@ -47,7 +47,7 @@ class StoreProjectRequest extends FormRequest
             'repository_link.url' => 'the link must be a url',
             'completion_date.date' => 'completion date must be a date',
             'image.image'=>'image must be a image',
-            'image.mimes'=>'image must be a image (.jpeg, png, .gif, .bmp, .svg)',
+            'image.mimes'=>'image must be a image (.jpeg, png, .gif, .bmp, .svg, .jpg)',
             'image.max'=>'image a maximum :max characters',
             'project_status'=> 'mandatory "project status"',
         ];

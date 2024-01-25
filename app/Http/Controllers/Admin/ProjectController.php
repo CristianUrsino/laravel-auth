@@ -36,12 +36,13 @@ class ProjectController extends Controller
     {
         $formData = $request->validated();
         
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $image = Storage::put('image', $formData['image']); 
             $formData['image'] = $image;
+        // dd($formData['image']);
+
         }
 
-        // dd($formData);
         $project = Project::create($formData);
         return redirect()->route('admin.projects.show', $project->id);
     }
